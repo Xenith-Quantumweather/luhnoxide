@@ -27,26 +27,26 @@ cd luhnoxide
 cargo build --release
 
 # The executable will be available at
-# ./target/release/luhn_checker
+# ./target/release/luhnoxide
 ```
 
 ## Usage
 
 ```bash
 # Basic usage - scan a file and display results on console
-./luhn_checker -i /path/to/file.txt
+./luhnoxide -i /path/to/file.txt
 
 # Scan multiple files (comma-separated)
-./luhn_checker -i /path/to/file1.txt,/path/to/file2.txt
+./luhnoxide -i /path/to/file1.txt,/path/to/file2.txt
 
 # Scan a directory recursively
-./luhn_checker -i /path/to/directory
+./luhnoxide -i /path/to/directory
 
 # Output results to a file
-./luhn_checker -i /path/to/input -o results.txt
+./luhnoxide -i /path/to/input -o results.txt
 
 # Disable masking of middle digits (shows full card numbers)
-./luhn_checker -i /path/to/input --no-mask
+./luhnoxide -i /path/to/input --no-mask
 ```
 
 ## Command Line Options
