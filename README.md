@@ -20,7 +20,7 @@ A high-performance credit card scanner written in Rust that uses the Luhn algori
 ### Building from source
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/luhnoxide.git
+git clone https://github.com/Xenith-Quantumweather/luhnoxide.git
 cd luhnoxide
 
 # Build the release version
