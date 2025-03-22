@@ -77,7 +77,7 @@ The default masking behavior helps prevent accidental exposure of sensitive info
 
 ## License
 
-MIT License
+Apache-2.0 License
 
 ## Contributing
 
