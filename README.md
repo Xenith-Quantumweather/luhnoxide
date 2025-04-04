@@ -2,6 +2,24 @@
 
 A high-performance credit card scanner written in Rust that uses the Luhn algorithm to identify valid credit card numbers in files or directories.
 
+## Report Features
+
+The HTML and summary reports include valuable metrics for auditing and compliance:
+
+- **Key Statistics**: Files scanned, directories traversed, total size processed
+- **Card Distribution**: Breakdown of found card types (Visa, Mastercard, etc.)
+- **Risk Assessment**: Categorization of files by risk level (high, medium, low)
+- **Clean File Percentage**: Percentage of files free from credit card data
+- **File Listing**: Lists of files containing credit card numbers, organized by risk level
+- **Compliance Metrics**: Summary information suitable for PCI DSS reports
+- **Visual Presentation**: Formatted for clarity and professional presentation
+
+These reports are particularly useful for:
+- Payment Card Industry Data Security Standard (PCI DSS) compliance audits
+- Security assessments and penetration test reports
+- Client deliverables and executive summaries
+- Remediation planning and prioritization
+
 ## Features
 
 - **Luhn Algorithm Validation**: Accurately identifies valid credit card numbers
@@ -11,6 +29,7 @@ A high-performance credit card scanner written in Rust that uses the Luhn algori
 - **Recursive Directory Scanning**: Process entire directory trees with a single command
 - **Multi-threaded Performance**: Utilizes parallel processing for faster scanning of multiple files
 - **Flexible Output Options**: Display results on console or save to a file
+- **Comprehensive Reporting**: Generate summary reports for compliance and risk assessment
 
 ## Installation
 
@@ -47,6 +66,24 @@ cargo build --release
 
 # Disable masking of middle digits (shows full card numbers)
 ./luhnoxide -i /path/to/input --no-mask
+
+# Output in JSON format
+./luhnoxide -i /path/to/input -f json
+
+# Output in CSV format
+./luhnoxide -i /path/to/input -f csv -o results.csv
+
+# Generate a summary report with the detailed results
+./luhn_checker -i /path/to/input -s
+
+# Generate an HTML report (good for client deliverables)
+./luhn_checker -i /path/to/directory -f html -o report.html
+
+# Generate a PDF-ready HTML report
+./luhn_checker -i /path/to/directory -f pdf -o report.html
+
+# Combine options: JSON output to file with full card numbers
+./luhnoxide -i /path/to/input -f json -o results.json --no-mask
 ```
 
 ## Command Line Options
@@ -55,6 +92,8 @@ cargo build --release
 |--------|-------------|
 | `-i, --input` | Input file or directory paths (comma-separated) |
 | `-o, --output` | Output file path (default: console) |
+| `-f, --format` | Output format: text (default), json, or csv |
+| `-s, --summary` | Generate a summary report of findings |
 | `--no-mask` | Disable masking of middle digits in credit card numbers |
 
 ## Output Format
